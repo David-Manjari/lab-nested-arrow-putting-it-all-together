@@ -9,5 +9,9 @@ const userInfo ={
 };
 
 function createLoginTracker(userInfo) {
-  
+  let attemptCount = () => {
+    if (password !== userInfo.password){
+      attemptcount++;
+    }
+  }
 }
