@@ -25,23 +25,18 @@ let password = prompt("Enter account password");
 
 
       // checks if password is correct and attempts are less than three and provides output if both are correct
-      if (password === userInfo.password) {
-        return "login Successful";
+      if (password === userInfo.password) {   return "login Successful";
+        
+        
       }
-      // checks if password is incorrect and attempts are less than three and provides output if both are correct
-      else {
-        password = prompt('Try entering password again : ')
+      password = prompt('Try entering password again : ')
         checkAttempt(userInfo, password)
         console.log(`Log in attempt : ${attemptCount} , Login Failed!`)
-      
-
-      }
     }
-    else  return "Account locked due to too many failed login attempts";
+    return "Account locked due to too many failed login attempts";
     
 
   }
-  return;
   
 }
 
