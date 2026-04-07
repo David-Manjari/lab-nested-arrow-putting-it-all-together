@@ -38,7 +38,6 @@ let password = prompt("Enter account password");
       }
       return "Account locked due to too many failed login attempts";
     }
-    return "Account locked due to too many failed login attempts";
     
 
   }
