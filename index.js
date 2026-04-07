@@ -9,40 +9,40 @@ const userInfo ={
 };
 
 function createLoginTracker(userInfo) {
- const password = prompt("Enter account password");
+let password = prompt("Enter account password");
   // code snippet stores the number of attempts in loggin in using an arrow function
-  console.log("event1")
   let attemptCount = 0;
   const checkAttempt = (userInfo,password) => {
     if (password !== userInfo.password){
-      attemptCount++;
+      ++attemptCount;
     }
     
   }
-  console.log(attemptCount)
   
     // created an if statement to check if password attempts are more than three
-  if( attemptCount < 3){
-    
-    
+  for(attemptCount;attemptCount < 3;){
+    if (attemptCount < 3) {
+
+
       // checks if password is correct and attempts are less than three and provides output if both are correct
       if (password === userInfo.password) {
         return "login Successful";
       }
       // checks if password is incorrect and attempts are less than three and provides output if both are correct
-      else  {
+      else {
+        password = prompt('Try entering password again : ')
+        checkAttempt(userInfo, password)
         console.log(`Log in attempt : ${attemptCount} , Login Failed!`)
-        checkAttempt(userInfo,password)
-        return prompt('Try entering password again : ')
+      
 
       }
     }
-  else {
-    return 'Account locked due to too many failed login attempts'
-  }
-  
+    else  return "Account locked due to too many failed login attempts";
+    
 
- 
+  }
+  return;
+  
 }
 
 const result = createLoginTracker(userInfo)
