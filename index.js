@@ -7,27 +7,32 @@ const userInfo ={
   username : 'user1',
   password : 'pass123',
 };
-
-function createLoginTracker(userInfo) {
+let attemptCount = 0;
+function createLoginTracker(userInfo,password) {
   // code snippet stores the number of attempts in loggin in using an arrow function
-  let attemptCount = () => {
+  console.log("event1")
+  
+  const checkAttempt = (userInfo,password) => {
     if (password !== userInfo.password){
-      attemptcount++;
+      attemptCount++;
+      return attemptCount;
     }
+    
   }
+  console.log(attemptCount)
   // created an if statement to check if password attempts are more than three
-  if( passwordAttempt <= 3){
+  if( attemptCount < 3){
     // created an anonymus function that checks if password is correct and the number of attempts
-
-    const passwordAttempt = function () {
-      password = prompt('Enter User Password'); // prompts the user to enter a password
+    console.log("umbrella succ")
+    const passwordAttempt = function (userInfo,password,attemptCount) {
       // checks if password is correct and attempts are less than three and provides output if both are correct
       if (password === userInfo.password && attemptCount <= 3) {
         return "login Successful";
       }
       // checks if password is incorrect and attempts are less than three and provides output if both are correct
-      else if (password !== userInfo.password && attemptCount <= 3) {
-        console.log(`Log in attempt : ${attemptcount} , Login Failed!`)
+      if(attemptCount<3)  {
+        console.log(`Log in attempt : ${attemptCount} , Login Failed!`)
+        checkAttempt()
         return prompt('Try entering password again : ')
 
       }
@@ -36,6 +41,6 @@ function createLoginTracker(userInfo) {
   else{
     return 'Account locked due to too many failed login attempts'
   }
-  
-
 }
+
+let password = createLoginTracker(prompt("Enter account password"))
