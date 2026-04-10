@@ -27,4 +27,3 @@ console.log(user1Login("pass123"));
 console.log(user1Login("pass13"));
 console.log(user1Login("pass12"));
 
-module.exports = createLoginTracker;
