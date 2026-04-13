@@ -6,7 +6,7 @@ const userInfo ={
 }
 function createLoginTracker (userInfo) {
   let attemptCount = 0;
- return (passwordAttempt) => {
+  let passTest = (passwordAttempt) => {
     // if statement to increment count
     if(passwordAttempt !== userInfo.password){
       attemptCount++;
@@ -19,8 +19,11 @@ function createLoginTracker (userInfo) {
       return `Login successful`;
     }
   }
+return  {passTest}
  
 }
 const user1Login = createLoginTracker(userInfo);
 
-module.exports = createLoginTracker;
+console.log(user1Login.passTest("pass13"))
+
+
