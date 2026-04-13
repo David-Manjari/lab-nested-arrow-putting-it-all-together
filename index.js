@@ -16,6 +16,7 @@ function createLoginTracker (userInfo) {
       return `Account locked due to too many failed login attempts`;
     }
     else if(attemptCount < 3){
+      attemptCount = 0;
       return `Login successful`;
     }
   }
@@ -25,5 +26,12 @@ return  {passTest}
 const user1Login = createLoginTracker(userInfo);
 
 console.log(user1Login.passTest("pass13"))
+console.log(user1Login.passTest("pass13"))
+console.log(user1Login.passTest("pass123"))
+console.log(user1Login.passTest("pass13"))
+console.log(user1Login.passTest("pass13"))
+console.log(user1Login.passTest("pass13"))
+console.log(user1Login.passTest("pass13"))
+
 
 
